@@ -36,7 +36,7 @@ class Article extends AbstractArticle
     private $reference;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Fournisseur")
+     * @ORM\ManyToMany(targetEntity="Fournisseur", cascade={"persist"})
      * @ORM\JoinTable(
      *   name="article_fournisseurs",
      *   joinColumns={@ORM\JoinColumn(name="article_id", referencedColumnName="id")},
