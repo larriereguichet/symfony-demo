@@ -7,8 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @param $civility
-     * @param $name
+     * @param string $civility
+     * @param string $name
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
