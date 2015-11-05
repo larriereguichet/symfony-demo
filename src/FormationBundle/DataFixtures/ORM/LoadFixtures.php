@@ -39,6 +39,7 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
                 $fournisseur = new Fournisseur();
                 // @todo: mettre un nom au fournisseur
                 // @todo: ajouter le fournisseur à l'article
+                $article->addFournisseur($fournisseur);
             }
             $manager->persist($article);
         }
