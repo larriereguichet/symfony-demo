@@ -3,6 +3,7 @@
 namespace FormationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -10,7 +11,7 @@ class DefaultController extends Controller
      * @param string $civility
      * @param string $name
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function indexAction($civility, $name)
     {

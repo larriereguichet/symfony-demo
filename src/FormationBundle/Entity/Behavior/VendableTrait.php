@@ -19,4 +19,16 @@ trait VendableTrait
     {
         return $this->priceHT;
     }
+
+    /**
+     * @param float $priceHT
+     *
+     * @return $this
+     */
+    public function setPriceHT($priceHT)
+    {
+        $this->priceHT = $priceHT;
+
+        return $this;
+    }
 }

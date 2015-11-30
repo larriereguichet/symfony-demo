@@ -1,3 +1,24 @@
 formation_homepage:
     path:     /hello/{civility}-{name}
     defaults: { _controller: FormationBundle:Default:index }
+
+article_create:
+    path: /article
+    defaults: { _controller: FormationBundle:Article:create }
+
+article_update:
+    path: /article/update/{id}
+    defaults: { _controller: FormationBundle:Article:update }
+
+article_delete:
+    path: /article/delete/{id}
+    defaults: { _controller: FormationBundle:Article:delete }
+
+article_list:
+    path:     /articles
+    defaults: { _controller: FormationBundle:Article:list }
+
+article_show:
+    path: /article/show/{id}
+    defaults: { _controller: FormationBundle:Article:show }
+

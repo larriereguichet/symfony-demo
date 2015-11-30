@@ -10,7 +10,7 @@ use FormationBundle\Model\PerissableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="FormationBundle\Repository\ArticleRepository")
+ * @ORM\Entity
  *
  * Class Article.
  */
@@ -29,7 +29,7 @@ class Article extends AbstractArticle
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Nope")
      *
      * @var string
      */

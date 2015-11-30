@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<h1>Article {{ article.id }}{{ article.reference }}</h1>
+
+<h2>Liste des fournisseurs</h2>
+<ul>
+    {% for fournisseur in article.fournisseurs %}
+        <li>{{ fournisseur.nom }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
