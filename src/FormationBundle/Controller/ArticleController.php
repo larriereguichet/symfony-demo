@@ -21,11 +21,14 @@ class ArticleController extends Controller
      */
     public function createAction(Request $request)
     {
+        // 1. création d’une entité vierge
         $article = new Article();
 
+        // 2. création du formulaire
         $form = $this->createForm(new ArticleType(), $article);
-        $form->handleRequest($request);
 
+        // 3. gestion de la soumission du formulaire
+        $form->handleRequest($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
@@ -38,6 +41,7 @@ class ArticleController extends Controller
             ]);
         }
 
+        // 4. affichage
         return $this->render('FormationBundle:Article:create.html.twig', [
             'form' => $form->createView()
         ]);
@@ -53,18 +57,20 @@ class ArticleController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        // 1. récupération de l’entité à éditer
         $article = $this
             ->getDoctrine()
             ->getRepository('FormationBundle:Article')
             ->find($id)
         ;
 
+        // 2. création du formulaire
         $form = $this->createForm(new ArticleType(), $article);
-        $form->handleRequest($request);
 
+        // 3. gestion de la soumission du formulaire
+        $form->handleRequest($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
             $em->flush();
 
             $this->addFlash('success', 'Votre article a bien été édité.');
@@ -74,6 +80,7 @@ class ArticleController extends Controller
             ]);
         }
 
+        // 4. affichage
         return $this->render('FormationBundle:Article:create.html.twig', [
             'form' => $form->createView()
         ]);
@@ -88,6 +95,7 @@ class ArticleController extends Controller
      */
     public function deleteAction($id)
     {
+        // 1. récupération de l’entité à supprimer
         $article = $this
             ->getDoctrine()
             ->getRepository('FormationBundle:Article')
@@ -98,6 +106,7 @@ class ArticleController extends Controller
         $em->remove($article);
         $em->flush();
 
+        // 2. affichage
         $this->addFlash('success', 'Votre article a bien été supprimé.');
 
         return $this->redirectToRoute('article_list');
@@ -110,12 +119,14 @@ class ArticleController extends Controller
      */
     public function listAction()
     {
+        // 1. récupération des entités à supprimer
         $articles = $this
             ->getDoctrine()
             ->getRepository('FormationBundle:Article')
             ->findAll()
         ;
 
+        // 2. affichage
         return $this->render('FormationBundle:Article:list.html.twig', [
             'articles' => $articles,
         ]);
@@ -130,12 +141,14 @@ class ArticleController extends Controller
      */
     public function showAction($id)
     {
+        // 1. récupération de l’entité à afficher
         $article = $this
             ->getDoctrine()
             ->getRepository('FormationBundle:Article')
             ->find($id)
         ;
 
+        // 2. affichage
         return $this->render('FormationBundle:Article:show.html.twig', [
             'article' => $article
         ]);
